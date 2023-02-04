@@ -19,5 +19,10 @@
       "host": true,
       "platform": "windows & !mingw"
     }
-  ]
+  ],
+  "features": {
+    "weak-ciphers": {
+      "description": "Enable weak ciphers on windows."
+    }
+  }
 }

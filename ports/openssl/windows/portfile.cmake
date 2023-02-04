@@ -7,9 +7,14 @@ vcpkg_list(SET CONFIGURE_OPTIONS
     enable-capieng
     no-ssl2
     no-ssl3
-    no-weak-ssl-ciphers
     no-tests
 )
+
+if("weak-ciphers" IN_LIST FEATURES)
+    vcpkg_list(APPEND CONFIGURE_OPTIONS enable-weak-ssl-ciphers)
+else()
+    vcpkg_list(APPEND CONFIGURE_OPTIONS no-weak-ssl-ciphers)
+endif()
 
 if(VCPKG_LIBRARY_LINKAGE STREQUAL "dynamic")
     vcpkg_list(APPEND CONFIGURE_OPTIONS shared)
