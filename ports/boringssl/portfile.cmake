@@ -47,4 +47,6 @@ if(IS_DIRECTORY ${CURRENT_PACKAGES_DIR}/tools/boringssl)
   vcpkg_copy_tool_dependencies("${CURRENT_PACKAGES_DIR}/tools/boringssl")
 endif()
 
+file(INSTALL "${CMAKE_CURRENT_LIST_DIR}/boringssl-config.cmake" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}")
+
 file(INSTALL "${SOURCE_PATH}/LICENSE" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}" RENAME copyright)
