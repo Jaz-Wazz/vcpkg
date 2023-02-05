@@ -29,6 +29,12 @@ vcpkg_cmake_configure(
 vcpkg_cmake_install()
 vcpkg_copy_pdbs()
 
+file(GLOB_RECURSE MISSED_PDBS ${CURRENT_BUILDTREES_DIR} "liblzma.pdb")
+
+foreach(PDB_FILE IN LISTS MISSED_PDBS)
+    file(COPY ${PDB_FILE} DESTINATION "${CURRENT_PACKAGES_DIR}/debug/lib")
+endforeach()
+
 set(exec_prefix "\${prefix}")
 set(libdir "\${prefix}/lib")
 set(includedir "\${prefix}/include")
