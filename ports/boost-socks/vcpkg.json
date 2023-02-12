@@ -1,0 +1,13 @@
+{
+	"name": "boost-socks",
+	"version": "0.0.1",
+	"description": "SOCKS Protocol Library using Boost.ASIO in C++11",
+	"homepage": "https://github.com/CPPAlliance/socks",
+	"dependencies":
+	[
+		{"name": "boost-asio", "host": true},
+		{"name": "boost-core", "host": true},
+		{"name": "boost-system", "host": true},
+		{"name": "boost-exception", "host": true}
+	]
+}
