@@ -1,0 +1,19 @@
+{
+	"name": "boost-http-proto",
+	"version": "0.0.1",
+	"description": "HTTP/1 parsing and serialization algorithms using C++11",
+	"homepage": "https://github.com/CPPAlliance/http_proto",
+	"dependencies":
+	[
+		{"name": "zlib", "host": true},
+		{"name": "boost-align", "host": true},
+		{"name": "boost-assert", "host": true},
+		{"name": "boost-buffers", "host": true},
+		{"name": "boost-config", "host": true},
+		{"name": "boost-system", "host": true},
+		{"name": "boost-throw-exception", "host": true},
+		{"name": "boost-url", "host": true},
+		{"name": "boost-utility", "host": true},
+		{"name": "boost-winapi", "host": true}
+	]
+}
