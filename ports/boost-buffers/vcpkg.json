@@ -1,0 +1,14 @@
+{
+	"name": "boost-buffers",
+	"version": "0.0.1",
+	"description": "Asio Buffers without the Asio",
+	"homepage": "https://github.com/CPPAlliance/buffers",
+	"dependencies":
+	[
+		{"name": "boost-assert", "host": true},
+		{"name": "boost-config", "host": true},
+		{"name": "boost-static-assert", "host": true},
+		{"name": "boost-system", "host": true},
+		{"name": "boost-throw-exception", "host": true}
+	]
+}
