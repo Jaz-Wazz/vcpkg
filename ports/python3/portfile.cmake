@@ -29,13 +29,21 @@ if(VCPKG_CMAKE_SYSTEM_NAME STREQUAL "Linux")
     list(APPEND PATCHES 0011-gcc-ldflags-fix.patch)
 endif()
 
+# Fix "CMAKE_SYSTEM_VERSION" variable.
+if (NOT DEFINED CMAKE_SYSTEM_VERSION)
+    execute_process(COMMAND "cmd" "/c" "ver" OUTPUT_VARIABLE CONSOLE_VER_OUT)
+    string(REGEX MATCH "[0-9]+\.[0-9]+" CMAKE_SYSTEM_VERSION ${CONSOLE_VER_OUT})
+endif()
+
 # Python 3.9 removed support for Windows 7. This patch re-adds support for Windows 7 and is therefore
 # required to build this port on Windows 7 itself due to Python using itself in its own build system.
 if("deprecated-win7-support" IN_LIST FEATURES)
     list(APPEND PATCHES 0006-restore-support-for-windows-7.patch)
     message(WARNING "Windows 7 support is deprecated and may be removed at any time.")
 elseif(VCPKG_TARGET_IS_WINDOWS AND CMAKE_SYSTEM_VERSION EQUAL 6.1)
-    message(FATAL_ERROR "python3 requires the feature deprecated-win7-support when building on Windows 7.")
+    message(WARNING "Detected Windows 7, applied restore-support-for-windows-7 patch.")
+	list(APPEND FEATURES "deprecated-win7-support")
+	list(APPEND PATCHES 0006-restore-support-for-windows-7.patch)
 endif()
 
 if(VCPKG_TARGET_IS_WINDOWS OR VCPKG_TARGET_IS_UWP)
